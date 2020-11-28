@@ -4,7 +4,11 @@ package com.example.mykotlinapp.variable_ex
 * Variable declaration data types and String interpolation
 *
 * */
+
 class Car {
+    val complaintBox:String by lazy {
+        "compained"
+    }
     var color: String = "white"
     var hornType = "air horn"
     private val wheel = 4
