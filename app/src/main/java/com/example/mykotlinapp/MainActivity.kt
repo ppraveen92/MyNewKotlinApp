@@ -1,7 +1,6 @@
 package com.example.mykotlinapp
 
 import android.app.Activity
-import android.nfc.Tag
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,32 +8,37 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    val namee:String =""
     object MyTAG {
         val MainTAG: String = MainActivity::class.java.simpleName
     }
 
-
-    lateinit var numberList:MutableList<Int>
-    lateinit var studentList: MutableList<Student>
+    lateinit var numberList: MutableList<Int>
+    lateinit var studentList: MutableList<Student?>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         studentList = mutableListOf()
 
-
         numberList = mutableListOf()
 
-        for(index in 1..10){
-         numberList.add(index)
+        for (index in 1.rangeTo(10) ) {
+
+            numberList.add(index)
         }
         showOnlyLogs("numbers : ${numberList}")
 
-        showOnlyLogs("${numberList.any { number -> number>5 }}")
-        showOnlyLogs("${numberList.count { number -> number>8 }}")
-        showOnlyLogs("${numberList.find { number -> number==5 }}")
-        showOnlyLogs("${numberList.all { number -> number<5 }}")
+        showOnlyLogs("${numberList.any { number -> number > 5 }}")
+        showOnlyLogs("${numberList.count { number -> number > 8 }}")
+        showOnlyLogs("${numberList.find { number -> number == 5 }}")
+        showOnlyLogs("${numberList.all { number -> number < 5 }}")
 
-        showOnlyLogs("${numberList.filter { number -> number>9 }.map { number -> number*number }}")
+        showOnlyLogs(
+            "${
+                numberList.filter { number -> number > 9 }.map { number -> number * number }
+            }"
+        )
 
         btnAdd.setOnClickListener {
             val id = Integer.parseInt(editId?.text.toString())
@@ -59,12 +63,15 @@ class MainActivity : AppCompatActivity() {
             for (index in 0..studentList.size - 1) {
                 val student = studentList.get(index)
 
-                if (student.percentage > 75) {
-                    showOnlyLogs(student.name)
-                    student.play()
-                } else {
-                    student.read()
+                student?.let {
+                    if (it.percentage > 75) {
+                        showOnlyLogs(it.name)
+                        it.play()
+                    } else {
+                        it.read()
+                    }
                 }
+
             }
         }
 
@@ -73,12 +80,15 @@ class MainActivity : AppCompatActivity() {
 
             for (index in 0..studentList.size - 1) {
                 val student = studentList.get(index)
-                val isQualified = ItFest().isQualified(student.name, student.percentage)
-                if (isQualified) {
-                    showOnlyLogs("${student.name} is qualified")
-                } else {
-                    showOnlyLogs("${student.name} is not qualified")
+                student?.let {
+                    val isQualified = ItFest().isQualified(student.name, student.percentage)
+                    if (isQualified) {
+                        showOnlyLogs("${student.name} is qualified")
+                    } else {
+                        showOnlyLogs("${student.name} is not qualified")
+                    }
                 }
+
             }
 
         }
@@ -90,14 +100,15 @@ class MainActivity : AppCompatActivity() {
                 student.eat()
                 student.playGames()
             }
-
         }
 
         btnDisplay.setOnClickListener {
             for (stud in studentList) {
-
+                stud?.let {
                 val mylamda: (String) -> Boolean = { name: String -> name.startsWith("p") }
                 isNameStartWithP(stud.name, mylamda)
+                }
+
 
             }
 
@@ -108,6 +119,10 @@ class MainActivity : AppCompatActivity() {
         showOnlyLogs("$name with p :" + mylam(name))
     }
 
+
+    val value = if(2>1) 2 else 1
+
+
 }
 
 fun Activity.ShowToastAndLog(msg: String) {
@@ -116,9 +131,9 @@ fun Activity.ShowToastAndLog(msg: String) {
 }
 
 fun Activity.showOnlyLogs(msg: String) {
+
     Log.v(MainActivity.MyTAG.MainTAG, "Scholarship got : $msg")
 }
-
 
 
 

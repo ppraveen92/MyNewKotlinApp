@@ -9,5 +9,4 @@ class ScholarshipAccount {
     fun creditScholar(name: String, bal: Int = 0) {
         accountBal = accountBal + bal
     }
-
 }
