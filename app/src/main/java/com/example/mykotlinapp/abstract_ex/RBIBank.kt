@@ -1,5 +1,7 @@
 package com.example.mykotlinapp.abstract_ex
-
+/*
+* Abstract concept
+* */
 abstract class RBIBank {
     var bal: Long = 100
     abstract fun simpleinterest()
