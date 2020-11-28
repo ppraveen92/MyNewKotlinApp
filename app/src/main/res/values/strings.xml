@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MyKotlinApp</string>
+    <string name="name">Student Name</string>
+    <string name="stu_id">Student Id</string>
+    <string name="college">College</string>
+    <string name="percentage">Percentage</string>
+    <string name="add">ADD</string>
+    <string name="list">LIST</string>
+    <string name="scholar">SCHOLARSHIP</string>
+    <string name="itfest">IT FEST</string>
+    <string name="play">PLAY</string>
+    <string name="display">DISPLAY</string>
+</resources>
