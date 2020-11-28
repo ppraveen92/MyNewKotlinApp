@@ -1,7 +1,5 @@
 package com.example.mykotlinapp.functions
 
-import android.app.ProgressDialog.show
-
 /*
 * Functions,extension,infix,default params,named params
 *
@@ -25,6 +23,7 @@ fun main(args: Array<String>) {
     print("biggest is $resultInfix")
     setVehicleSpecification(name = "audi")
     setVehicleSpecification(name = "lorry", wheel = 6)
+    print(add(a = 1, b = 2))
 }
 
 fun Int.comparingTo(a: Int): Int {
@@ -44,3 +43,5 @@ infix fun Int.compareWithInfix(a: Int): Int {
 fun setVehicleSpecification(name: String, wheel: Int = 4) {
     print("Vehicle is $name with $wheel wheels")
 }
+
+fun add(a: Int, b: Int): Int = a + b
