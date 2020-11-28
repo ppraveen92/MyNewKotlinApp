@@ -8,7 +8,7 @@ abstract class RBIBank {
     abstract fun commonIntereset()
 
     fun deposit(amt: Long) {
-        bal = bal + amt
+        bal += amt
         print("deposited $amt, now current bal is $bal")
     }
 }

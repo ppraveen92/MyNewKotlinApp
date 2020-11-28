@@ -12,10 +12,12 @@ fun main(args: Array<String>) {
         }
     }
     for (item in itemList) {
-        when (item) {
+        val res = when (item) {
             1, 3, 5, 7, 9 -> "$item is odd"
             2, 4, 6, 8, 10 -> "$item even"
+            else -> "nknown"
         }
+        print(res)
     }
     val result = when (8) {
         1, 3, 5, 7, 9 -> "odd"

@@ -9,6 +9,7 @@ fun main(args: Array<String>) {
     val myFirstLamda: (Int, Int) -> Int = { a: Int, b: Int -> a + b }
     addTwoNumber(1, 2, myFirstLamda)
     val mySecondLambda: (Int, Int) -> Unit = { a: Int, b: Int -> resultHere = a + b }
+    print(resultHere)
     multiplyTwoNumber(a = 2, b = 3, operation = mySecondLambda)
     val compareLambda: (String) -> Boolean = { it.startsWith("p") }
     print(getNameWithP("prave", compareLambda))

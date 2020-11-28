@@ -8,6 +8,7 @@ import com.example.mykotlinapp.interoperability.javafiles.Person
  * */
 class Company(val name: String, val strength: Int) {
     fun getTheCompanyName(): String {
+        print("Strenth is $strength")
         return name
     }
 }

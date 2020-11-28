@@ -7,16 +7,16 @@ import android.util.Log
 import android.widget.Toast
 import com.example.mykotlinapp.R
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.textCount
 
 class MainActivity : AppCompatActivity() {
 
-    val namee:String =""
     object MyTAG {
         val MainTAG: String = MainActivity::class.java.simpleName
     }
 
-    lateinit var numberList: MutableList<Int>
-    lateinit var studentList: MutableList<Student?>
+    private lateinit var numberList: MutableList<Int>
+    private lateinit var studentList: MutableList<Student?>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
             numberList.add(index)
         }
-        showOnlyLogs("numbers : ${numberList}")
+        showOnlyLogs("numbers : $numberList")
 
         showOnlyLogs("${numberList.any { number -> number > 5 }}")
         showOnlyLogs("${numberList.count { number -> number > 8 }}")
@@ -36,9 +36,7 @@ class MainActivity : AppCompatActivity() {
         showOnlyLogs("${numberList.all { number -> number < 5 }}")
 
         showOnlyLogs(
-            "${
-                numberList.filter { number -> number > 9 }.map { number -> number * number }
-            }"
+            "${numberList.filter { number -> number > 9 }.map { number -> number * number }}"
         )
 
         btnAdd.setOnClickListener {
@@ -54,7 +52,7 @@ class MainActivity : AppCompatActivity() {
             )
             studentList.add(student)
             Student.studentCount = Student.studentCount + 1
-            this.textCount.text = "Student Count ${Student.studentCount}"
+            textCount.text = "Student Count ${Student.studentCount}"
             ShowToastAndLog("Added")
         }
 
@@ -65,10 +63,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnScholar.setOnClickListener {
-
-            for (index in 0..studentList.size - 1) {
+            for (index in 0 until studentList.size) {
                 val student = studentList.get(index)
-
                 student?.let {
                     if (it.percentage > 75) {
                         showOnlyLogs(it.name)
@@ -77,32 +73,24 @@ class MainActivity : AppCompatActivity() {
                         it.read()
                     }
                 }
-
             }
         }
-
-
         btnItFest.setOnClickListener {
-
             for (index in 0..studentList.size - 1) {
                 val student = studentList.get(index)
                 student?.let {
                     val isQualified = ItFest()
                         .isQualified(student.name, student.percentage)
-                    if (isQualified) {
+                    if (isQualified)
                         showOnlyLogs("${student.name} is qualified")
-                    } else {
+                        else
                         showOnlyLogs("${student.name} is not qualified")
-                    }
                 }
-
             }
-
         }
 
         btnPlay.setOnClickListener {
-            val student = studentList?.get(0)
-
+            val student = studentList.get(0)
             student?.let {
                 student.eat()
                 student.playGames()
@@ -115,21 +103,14 @@ class MainActivity : AppCompatActivity() {
                 val mylamda: (String) -> Boolean = { name: String -> name.startsWith("p") }
                 isNameStartWithP(stud.name, mylamda)
                 }
-
-
             }
-
         }
     }
 
     fun isNameStartWithP(name: String, mylam: (String) -> Boolean) {
         showOnlyLogs("$name with p :" + mylam(name))
     }
-
-
     val value = if(2>1) 2 else 1
-
-
 }
 
 fun Activity.ShowToastAndLog(msg: String) {
@@ -137,8 +118,7 @@ fun Activity.ShowToastAndLog(msg: String) {
     Log.v(MainActivity.MyTAG.MainTAG, "Added")
 }
 
-fun Activity.showOnlyLogs(msg: String) {
-
+fun showOnlyLogs(msg: String) {
     Log.v(MainActivity.MyTAG.MainTAG, "Scholarship got : $msg")
 }
 
