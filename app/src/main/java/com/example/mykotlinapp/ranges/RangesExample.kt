@@ -1,5 +1,4 @@
 package com.example.mykotlinapp.ranges
-
 /*
 * Ranges,control,iterators
 *
