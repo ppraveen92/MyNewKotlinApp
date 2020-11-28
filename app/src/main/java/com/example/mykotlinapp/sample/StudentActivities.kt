@@ -1,4 +1,4 @@
-package com.example.mykotlinapp
+package com.example.mykotlinapp.sample
 
 interface StudentActivities {
     fun play()

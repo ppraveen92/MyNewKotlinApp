@@ -1,4 +1,4 @@
-package com.example.mykotlinapp
+package com.example.mykotlinapp.sample
 
 
 sealed class MyOperation {
@@ -7,8 +7,8 @@ sealed class MyOperation {
 
 
     fun operate(x: Int, op: MyOperation) = when (op) {
-        is MyOperation.Add -> x + op.value
-        is MyOperation.Substract -> x - op.value1 - op.value2
+        is Add -> x + op.value
+        is Substract -> x - op.value1 - op.value2
 
     }
 }

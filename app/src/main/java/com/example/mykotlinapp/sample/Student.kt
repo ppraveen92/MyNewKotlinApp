@@ -1,7 +1,6 @@
-package com.example.mykotlinapp
+package com.example.mykotlinapp.sample
 
 import android.util.Log
-
 
 
 data class Student(var id: Int, val name: String, val college: String, val percentage: Int) :

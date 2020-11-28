@@ -1,10 +1,11 @@
-package com.example.mykotlinapp
+package com.example.mykotlinapp.sample
 
 import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.example.mykotlinapp.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -45,10 +46,15 @@ class MainActivity : AppCompatActivity() {
             val name = editName?.text.toString()
             val percentage = Integer.parseInt(editPercentage?.text.toString())
             val college = editCollege?.text.toString()
-            val student = Student(id = id, percentage = percentage, college = college, name = name)
+            val student = Student(
+                id = id,
+                percentage = percentage,
+                college = college,
+                name = name
+            )
             studentList.add(student)
             Student.studentCount = Student.studentCount + 1
-            textCount.text = "Student Count ${Student.studentCount}"
+            this.textCount.text = "Student Count ${Student.studentCount}"
             ShowToastAndLog("Added")
         }
 
@@ -81,7 +87,8 @@ class MainActivity : AppCompatActivity() {
             for (index in 0..studentList.size - 1) {
                 val student = studentList.get(index)
                 student?.let {
-                    val isQualified = ItFest().isQualified(student.name, student.percentage)
+                    val isQualified = ItFest()
+                        .isQualified(student.name, student.percentage)
                     if (isQualified) {
                         showOnlyLogs("${student.name} is qualified")
                     } else {
