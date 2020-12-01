@@ -14,7 +14,7 @@ class GaneshPerson : MyDailyTask {
 }
 
 fun main(args: Array<String>) {
-    val ganes = GaneshPerson()
+    val ganes:GaneshPerson = GaneshPerson()
     ganes.play()
     ganes.read()
     ganes.sleep()

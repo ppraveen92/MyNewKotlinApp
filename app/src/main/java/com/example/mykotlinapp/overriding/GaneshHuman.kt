@@ -1,4 +1,4 @@
-package com.example.mykotlinapp.overriding_ex
+package com.example.mykotlinapp.overriding
 
 class GaneshHuman : HumanBeing() {
     fun drive() = print("I can drive as well")

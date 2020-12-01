@@ -1,4 +1,4 @@
-package com.example.mykotlinapp.dataclass_constructors
+package com.example.mykotlinapp.dataclassconstructors
 /*
 * data classes and constructors
 * */

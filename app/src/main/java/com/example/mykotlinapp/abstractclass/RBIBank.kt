@@ -1,4 +1,4 @@
-package com.example.mykotlinapp.abstract_ex
+package com.example.mykotlinapp.abstractclass
 /*
 * Abstract concept
 * */

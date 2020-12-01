@@ -1,4 +1,4 @@
-package com.example.mykotlinapp.null_safety
+package com.example.mykotlinapp.nullsafety
 
 /*
 * Null Safety Operators

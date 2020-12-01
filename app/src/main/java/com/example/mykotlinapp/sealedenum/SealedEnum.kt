@@ -1,4 +1,4 @@
-package com.example.mykotlinapp.sealed_enum
+package com.example.mykotlinapp.sealedenum
 
 sealed class SealedClass {
     class A : SealedClass()

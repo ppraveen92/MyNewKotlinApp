@@ -1,11 +1,11 @@
-package com.example.mykotlinapp.singletone_ex
+package com.example.mykotlinapp.singleton
 
 object SingleTonSample {
     var name = "ROBO"
     fun getCompanyName(): String = name
 }
 
-fun main(args: Array<String>) {
+fun main() {
     SingleTonSample.name = "PHILIPS"
     SingleTonSample.getCompanyName()
     StaticExample.isPraveen()

@@ -1,4 +1,4 @@
-package com.example.mykotlinapp.scope_functions
+package com.example.mykotlinapp.scopefunctions
 
 /*
 * Scope functions (with apply let also run )
@@ -14,9 +14,9 @@ class Person {
 fun main(args: Array<String>) {
     val person1 = Person()
     val pname = with(person1) {
-        id = 10
-        name = "prav"
-        name
+            id = 10
+            name = "prav"
+            name
     }
     print(pname)
     val person2 = Person()
@@ -24,11 +24,13 @@ fun main(args: Array<String>) {
         id = 20
         name = "arun"
     }.display()
+
     val person3 = Person()
     person3.also {
         it.id = 20
         it.name = "arun"
     }.display()
+
     val person4: Person? = Person()
     val nameNew = person4?.let {
         it.id = 20

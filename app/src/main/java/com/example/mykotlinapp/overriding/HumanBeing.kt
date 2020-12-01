@@ -1,4 +1,4 @@
-package com.example.mykotlinapp.overriding_ex
+package com.example.mykotlinapp.overriding
 
 /*
 * Overriding

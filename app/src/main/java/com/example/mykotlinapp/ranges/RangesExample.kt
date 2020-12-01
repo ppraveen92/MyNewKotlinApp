@@ -1,10 +1,14 @@
 package com.example.mykotlinapp.ranges
+
 /*
 * Ranges,control,iterators
 *
 * */
-fun main(args: Array<String>) {
+fun main() {
     val itemList: MutableList<Int> = mutableListOf()
+    for (index in 1.rangeTo(10)) itemList.add(index)
+    for (index in 10.downTo(1)) itemList.add(index)
+    for (index in 10.downTo(1) step 2) itemList.add(index)
     for (index in 1..10) itemList.add(index)
     for (item in itemList) {
         if (item == 5) {

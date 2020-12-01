@@ -23,7 +23,7 @@ fun main(args: Array<String>) {
     print("biggest is $resultInfix")
     setVehicleSpecification(name = "audi")
     setVehicleSpecification(name = "lorry", wheel = 6)
-    print(add(a = 1, b = 2))
+    print(add(b = 1, a = 2))
 }
 
 fun Int.comparingTo(a: Int): Int {
